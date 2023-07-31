@@ -1,6 +1,8 @@
 import { useEffect, useRef } from "react";
+import Image from 'next/image';
 
 import styles from "./home.module.scss";
+import ImgStyles from "./ui-lib.module.scss";
 
 import { IconButton } from "./button";
 import SettingsIcon from "../icons/settings.svg";
@@ -11,6 +13,7 @@ import CloseIcon from "../icons/close.svg";
 import MaskIcon from "../icons/mask.svg";
 import PluginIcon from "../icons/plugin.svg";
 import DragIcon from "../icons/drag.svg";
+import VxPublicIcon from "../icons/vxpublic.png";
 
 import Locale from "../locales";
 
@@ -27,7 +30,7 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import { useMobileScreen } from "../utils";
 import dynamic from "next/dynamic";
-import { showConfirm, showToast } from "./ui-lib";
+import { showConfirm, showToast, showImage} from "./ui-lib";
 
 const ChatList = dynamic(async () => (await import("./chat-list")).ChatList, {
   loading: () => null,
@@ -121,7 +124,7 @@ export function SideBar(props: { className?: string }) {
           ChatGPT Next
         </div>
         <div className={styles["sidebar-sub-title"]}>
-          Build your own AI assistant.
+          关注vx[果有可乐]免费获取访问密码
         </div>
         <div className={styles["sidebar-logo"] + " no-dark"}>
           <ChatGptIcon />
@@ -173,10 +176,12 @@ export function SideBar(props: { className?: string }) {
               <IconButton icon={<SettingsIcon />} shadow />
             </Link>
           </div>
-          <div className={styles["sidebar-action"]}>
-            <a href={REPO_URL} target="_blank">
-              <IconButton icon={<GithubIcon />} shadow />
-            </a>
+          <div className={ImgStyles["image-previewer"]}>
+            <IconButton
+             text={"联系我"}
+             icon={<GithubIcon />}
+             onClick={async () => showImage(VxPublicIcon.src)}
+            ></IconButton>
           </div>
         </div>
         <div>

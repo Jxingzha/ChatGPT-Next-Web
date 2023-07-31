@@ -437,6 +437,23 @@ export function showImageModal(img: string) {
   });
 }
 
+export function showImage(img: string) {
+  showModal({
+    title: "΢��ɨһɨ",
+    children: (
+      <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+        <img
+          src={img}
+          alt="preview"
+          style={{
+            maxWidth: "80%",
+          }}
+        ></img>
+      </div>
+    ),
+  });
+}
+
 export function Selector<T>(props: {
   items: Array<{
     title: string;
