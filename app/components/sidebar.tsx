@@ -178,7 +178,7 @@ export function SideBar(props: { className?: string }) {
           </div>
           <div className={ImgStyles["image-previewer"]}>
             <IconButton
-             text={"联系我"}
+             text={"获取密码"}
              icon={<GithubIcon />}
              onClick={async () => showImage(VxPublicIcon.src)}
             ></IconButton>
