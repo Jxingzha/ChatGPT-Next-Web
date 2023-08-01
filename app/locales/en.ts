@@ -120,7 +120,6 @@ const en: LocaleType = {
     DeleteChat: "Confirm to delete the selected conversation?",
     DeleteToast: "Chat Deleted",
     Revert: "Revert",
-    QrScan: "Wechat Scan",
   },
   Settings: {
     Title: "Settings",

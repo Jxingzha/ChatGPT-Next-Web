@@ -439,7 +439,7 @@ export function showImageModal(img: string) {
 
 export function showImage(img: string) {
   showModal({
-    title: Locale.Home.QrScan,
+    title: "Wechat Scan",
     children: (
       <div style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
         <img
