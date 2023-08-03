@@ -460,6 +460,7 @@ export function Selector<T>(props: {
     subTitle?: string;
     value: T;
   }>;
+  defaultSelectedValue?: T;
   onSelection?: (selection: T[]) => void;
   onClose?: () => void;
   multiple?: boolean;
@@ -469,6 +470,7 @@ export function Selector<T>(props: {
       <div className={styles["selector-content"]}>
         <List>
           {props.items.map((item, i) => {
+            const selected = props.defaultSelectedValue === item.value;
             return (
               <ListItem
                 className={styles["selector-item"]}
@@ -479,7 +481,20 @@ export function Selector<T>(props: {
                   props.onSelection?.([item.value]);
                   props.onClose?.();
                 }}
-              ></ListItem>
+              >
+                {selected ? (
+                  <div
+                    style={{
+                      height: 10,
+                      width: 10,
+                      backgroundColor: "var(--primary)",
+                      borderRadius: 10,
+                    }}
+                  ></div>
+                ) : (
+                  <></>
+                )}
+              </ListItem>
             );
           })}
         </List>
